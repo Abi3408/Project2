@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="center">
+        <p>COUNTER</p>
+    <label id="count" for="CountLabel">0</label>
+        <div id="btn_grp">
+            <button id="decrease" onclick="decrease()">-</button>
+            <button id="reset" onclick="reset()">Reset </button>
+            <button id="increase" onclick="increase()">+</button>
+        </div>
+    </div>
+    
+    <style type="text/css">
+        .center{
+            border: 2px, solid;
+           text-align: center;
+           background-color: beige; 
+           padding-top: 50px;
+           font-size: 25px;
+           width: 500px;
+           height: 500px;
+           margin-top: 100px;
+           margin-left: 450px;
+           
+        }
+        #count{
+           color: green;
+           font-size: 100px;
+        }
+        #btn_grp{
+            padding-top: 50px;
+
+        }
+        p{
+            font-size: 75px;
+            margin-bottom: 0px;
+            color: navy;
+        }
+        #decrease{
+            font-size: 25px;  
+            border-radius: 5px; 
+            background-color:#ff6666;
+            display: inline-block;
+            padding: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        #reset{
+            font-size: 25px;
+            margin-left: 20px;
+            border-radius: 5px;
+            background-color: white;
+            padding: 20px;
+        }
+        #increase{
+            font-size: 25px;
+            margin-left: 20px;
+            border-radius: 5px;
+            background-color:  #009900;
+            padding: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        body{
+            background-color:cadetblue ;
+        }
+    </style>
+    <script>
+        num=0;
+        function decrease(){
+            num-=1;
+            if (num < 0){
+                document.getElementById("count").disable=true;
+                num=0; 
+            }
+            document.getElementById("count").innerHTML=num;
+        }
+        function reset(){
+            num=0;
+            document.getElementById("count").innerHTML=num;
+        }
+        function increase(){
+            num+=1;
+            document.getElementById("count").innerHTML=num;
+        }
+    </script>
+</body>
+</html>
