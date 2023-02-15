@@ -38,7 +38,7 @@
     </div>
     <section id="employeeData">
         <div class="employees">
-            <button class="empBtn">Add Employee</button>
+            <button class="empBtn" class="btn">Add Employee</button>
             <table id="table">
                 <tr>
                     <th>Name</th>
@@ -64,6 +64,31 @@
                 </script>
             </table>
         </div>
+        <div id="details">
+            <h4>Employee Details</h4>
+            <label for="name">Name</label>
+            <input type="text" name="fName">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="">
+            <label for="gender" >Gender</label>
+            <input type="radio" name="male" id=""> male
+            <input type="radio" name="female" id=""> female
+            <label for="department" name="depart">department</label>
+            <input type="text" name="dep" id="dep">
+            <button type="submit" id="submitBtn">Submit!</button>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $(".empBtn").click(function () {
+                    $("#details").show();
+                });
+            });
+            $(document).ready(function () {
+                    $("#submitBtn").click(function () {
+                        $("#details").hide();
+                    });
+                });
+        </script>
     </section>
     <section id="Login">
         <div class="log">
@@ -80,28 +105,7 @@
             </div>
         </div>
     </section>
-    <section id="addEmp">
-        <div id="details">
-            <h4>Employee Details</h4>
-            <label for="name">Name</label>
-            <input type="text">
-            <label for="age">Age</label>
-            <input type="number" name="" id="">
-            <label for="sex">Sex</label>
-            <input type="radio" name="male" id=""> male
-            <input type="radio" name="female" id=""> female
-            <label for="department">department</label>
-            <input type="text" name="" id="dep">
-            <button type="submit" id="submit">Submit!</button>
-        </div>
-        <script>
-            $(document).ready(function () {
-                    $("#submit").click(function () {
-                        
-                    });
-                });
-        </script>
-    </section>
+    
     <style>
         html,body{       
             width: 100%;
@@ -124,25 +128,7 @@
             padding: 8px;
             border-radius: 5px;
         }
-        .home{
-            justify-content: center;
-            text-align: center;
-            font-family: Comic Sans MS, Comic Sans, cursive;
-        }
-        .homeHeading{ 
-            padding-top: 150px;
-            font-size: 50px ;      
-        }
-        .homeContent{
-            height: 400px;
-            width: 400px; 
-            padding-left: 35%;  
-        }
-        table,th,td{
-            border: 1px solid;
-            padding: 2px;
-            border-collapse: collapse;
-        }
+
         #Home{
             background-color: #BEF0CB;
         }
@@ -152,6 +138,29 @@
         #login{
             background-color: #F6F7C1;
         }
+
+
+
+        .home{
+            justify-content: center;
+            text-align: center;
+            font-family: Comic Sans MS, Comic Sans, cursive;
+        }
+        .homeHeading{ 
+            padding-top: 150px;
+            font-size: 50px ;   
+            position: relative;   
+        }
+        .homeContent{
+            height: 400px;
+            width: 400px; 
+            padding-left: 35%;  
+        }
+        table,th,td{
+            border: 1px solid;
+            padding: 15px;
+            border-collapse: collapse;
+        }
         section{
             width: 100%;
             float: left;
@@ -159,17 +168,14 @@
             position: relative;
         }
         table {
-            margin: 0 auto;
             font-size: large;
             border: 1px solid black;
         }
         .empBtn{
             margin-bottom: 10px;
-            float: right;
             font-size: 20px;
             background-color: #18122B;
             color: white;
-            border-radius: 5px;
         }
         #employeeData{
             justify-content: center;
@@ -215,6 +221,7 @@
             padding-top: 25px;
         }
         #details{
+            display: none;
             position: absolute;
             width: 400px;
             height: 500px;
