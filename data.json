@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Amit",
+    "age": "27",
+    "sex": "male",
+    "department": "hr"
+  },
+  {
+    "name": "Anand",
+    "age": "27",
+    "sex": "male",
+    "department": "sales"
+  },
+  {
+    "name": "Arya",
+    "age": "27",
+    "sex": "male",
+    "department": "IT"
+  },
+  {
+    "name": "Nitu",
+    "age": "27",
+    "sex": "female",
+    "department": "reception"
+  },
+  {
+    "name": "Dev",
+    "age": "27",
+    "sex": "male",
+    "department": "hr"
+  }
+]
