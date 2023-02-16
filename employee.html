@@ -38,56 +38,71 @@
     </div>
     <section id="employeeData">
         <div class="employees">
-            <button class="empBtn" class="btn">Add Employee</button>
-            <table id="table">
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Sex</th>
-                    <th>Department</th>
-                </tr>
-                <script>
-                    $(document).ready(function () {
-                            $.getJSON("data.json", function (data) {
-                                var employee = '';
-                                $.each(data,function(key,value) {
-                                    employee += '<tr>';
-                                    employee += '<td>' + value.name + '</td>';
-                                    employee += '<td>' + value.age + '</td>';
-                                    employee += '<td>' + value.sex + '</td>';
-                                    employee += '<td>' + value.department + '</td>';
-                                    employee += '</tr>';
-                                });
-                                $('#table').append(employee);
-                            });
-                        });
-                </script>
-            </table>
-        </div>
-        <div id="details">
-            <h4>Employee Details</h4>
-            <label for="name">Name</label>
-            <input type="text" name="fName">
-            <label for="age">Age</label>
-            <input type="number" name="age" id="">
-            <label for="gender" >Gender</label>
-            <input type="radio" name="male" id=""> male
-            <input type="radio" name="female" id=""> female
-            <label for="department" name="depart">department</label>
-            <input type="text" name="dep" id="dep">
-            <button type="submit" id="submitBtn">Submit!</button>
+            <div>
+                <button class="empBtn" class="btn">Add Employee</button>
+            </div>
+            <div>
+                <table id="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Department</th>
+                    </tr>
+                </table>
+                <div id="details">
+                    <form action="submit">
+                        <h4>Employee Details</h4>
+                        <label for="name">Name</label>
+                        <input type="text" name="fName">
+                        <label for="age">Age</label>
+                        <input type="number" name="age" id="">
+                        <label for="gender">Gender</label>
+                        <input type="radio" name="option" id="male"> male
+                        <input type="radio" name="option" id="female"> female
+                        <label for="department" name="depart">department</label>
+                        <input type="text" name="dep" id="dep">
+                        <button type="submit" id="submitBtn">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <script>
             $(document).ready(function () {
+                loadJsonData();
                 $(".empBtn").click(function () {
                     $("#details").show();
                 });
-            });
-            $(document).ready(function () {
-                    $("#submitBtn").click(function () {
-                        $("#details").hide();
-                    });
+                
+
+                $('#myForm').submit(function () {
+                    
+                    // Get all the forms elements and their values in one step
+                    var values = $(this).serialize();
+                    console.log(values)
+                    // var array = [];
+                    // $.each("data.json", function (index, item) {
+                    //     array.push(item)
+                    // })
+                    // loadJsonData();
+                    $("#details").hide();
+
                 });
+                function loadJsonData(){
+                    $.getJSON("data.json", function (data) {
+                        var employee = '';
+                        $.each(data, function (key, value) {
+                            employee += '<tr>';
+                            employee += '<td>' + value.name + '</td>';
+                            employee += '<td>' + value.age + '</td>';
+                            employee += '<td>' + value.sex + '</td>';
+                            employee += '<td>' + value.department + '</td>';
+                            employee += '</tr>';
+                        });
+                        $('#table').append(employee);
+                    });
+                }
+            });
         </script>
     </section>
     <section id="Login">
@@ -172,6 +187,7 @@
             border: 1px solid black;
         }
         .empBtn{
+            float: right;
             margin-bottom: 10px;
             font-size: 20px;
             background-color: #18122B;
