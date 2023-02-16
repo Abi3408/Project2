@@ -1,256 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="emp.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="emp.js"></script>
 </head>
+
 <body>
-    <div class="navbar">
-        <a href="#Home"><button class="btn">Home</button></a>
-        <a href="#employeeData"><button class="btn">Employee Data</button></a>
-        <a href="#Login"><button class="btn">Login</button></a>
-    </div>
-    <div class="home" id="Home">
-        <div>
-            <h1 class="homeHeading">Welcome the Website</h1>
-        </div>
-        <div class="homeContent">
-            <p>HTML stands for HyperText Markup
-                Language. It is used to design
-                web pages using a markup language.
-                HTML is the combination of Hypertext
-                and Markup language. Hypertext
-                defines the link between the web
-                pages. A markup language is used.
-            </p>
-            <p>
-                TML stands for HyperText Markup
-                Language. It is used to design
-                web pages using a markup language.
-                HTML is the combination of Hypertext
-                and Markup language. Hyper
-            </p>
-        </div>  
-    </div>
-    <section id="employeeData">
-        <div class="employees">
-            <div>
-                <button class="empBtn" class="btn">Add Employee</button>
-            </div>
-            <div>
-                <table id="table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Sex</th>
-                        <th>Department</th>
-                    </tr>
-                </table>
-                <div id="details">
-                    <form action="submit">
-                        <h4>Employee Details</h4>
-                        <label for="name">Name</label>
-                        <input type="text" name="fName">
-                        <label for="age">Age</label>
-                        <input type="number" name="age" id="">
-                        <label for="gender">Gender</label>
-                        <input type="radio" name="option" id="male"> male
-                        <input type="radio" name="option" id="female"> female
-                        <label for="department" name="depart">department</label>
-                        <input type="text" name="dep" id="dep">
-                        <button type="submit" id="submitBtn">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script>
-            $(document).ready(function () {
-                loadJsonData();
-                $(".empBtn").click(function () {
-                    $("#details").show();
-                });
-                
-
-                $('#myForm').submit(function () {
-                    
-                    // Get all the forms elements and their values in one step
-                    var values = $(this).serialize();
-                    console.log(values)
-                    // var array = [];
-                    // $.each("data.json", function (index, item) {
-                    //     array.push(item)
-                    // })
-                    // loadJsonData();
-                    $("#details").hide();
-
-                });
-                function loadJsonData(){
-                    $.getJSON("data.json", function (data) {
-                        var employee = '';
-                        $.each(data, function (key, value) {
-                            employee += '<tr>';
-                            employee += '<td>' + value.name + '</td>';
-                            employee += '<td>' + value.age + '</td>';
-                            employee += '<td>' + value.sex + '</td>';
-                            employee += '<td>' + value.department + '</td>';
-                            employee += '</tr>';
-                        });
-                        $('#table').append(employee);
-                    });
-                }
-            });
-        </script>
-    </section>
-    <section id="Login">
-        <div class="log">
-            <h1>Login</h1>
-            <div class="loglabel">
-                <label for="username">UserName</label>
-                <input type="text" name="" id="username">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password"><br>
-            </div>
-            <div class="btn-grp">
-                <button type="submit">SignIn</button>
-                <button type="submit">SignUp</button>
-            </div>
-        </div>
-    </section>
-    
-    <style>
-        html,body{       
-            width: 100%;
-            height: 100%;
-            margin: 0px;
-            padding: 0px;
-            overflow-x: hidden;
-        }
-        .navbar{
-            background-color: dimgray;
-            padding: 1%;
-            text-align: end;
-        }
-        .navbar.a{
-            float: right;
-            display: block;
-            width: 100%;
-        }
-        .btn{
-            padding: 8px;
-            border-radius: 5px;
-        }
-
-        #Home{
-            background-color: #BEF0CB;
-        }
-        #employeeData{
-            background-color: #C1AEFC;
-        }
-        #login{
-            background-color: #F6F7C1;
-        }
+	<div class="navbar">
+		<a href="#Home"><button class="btn">Home</button></a>
+		<a href="#employeeData"><button class="btn">Employee Data</button></a>
+		<a href="#Login"><button class="btn">Login</button></a>
+	</div>
+	<div class="home" id="Home">
+		<div>
+			<h1 class="homeHeading">Welcome the Website</h1>
+		</div>
+		<div class="homeContent">
+			<p>HTML stands for HyperText Markup
+				Language. It is used to design
+				web pages using a markup language.
+				HTML is the combination of Hypertext
+				and Markup language. Hypertext
+				defines the link between the web
+				pages. A markup language is used.
+			</p>
+			<p>
+				TML stands for HyperText Markup
+				Language. It is used to design
+				web pages using a markup language.
+				HTML is the combination of Hypertext
+				and Markup language. Hyper
+			</p>
+		</div>
+	</div>
+	<section id="employeeData">
+		<div class="employees">
+			<div>
+				<button class="empBtn" class="btn">Add Employee</button>
+			</div>
+			<div>
+				<table id="table">
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Sex</th>
+						<th>Department</th>
+					</tr>
+				</table>
+				<div id="details">
+					<h4>Employee Details</h4>
+					<div>
+						<label for="name">Name</label>
+						<input type="text" name="name">
+					</div>
+					<div>
+						<label for="age">Age</label>
+						<input type="number" name="age" id="">
+					</div>
+					<div>
+						<label for="gender">Gender</label>
+						<input type="radio" name="gender" id="male"> male
+						<input type="radio" name="gender" id="female"> female
+					</div>
+					<div>
+						<label for="department" name="dept">department</label>
+						<input type="text" name="dept" id="dep">
+					</div>
+					<button type="submit" id="submitBtn">Submit</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function () {
+				var newEmp = {
+					name: '',
+					age: '',
+					gender: '',
+					dept: ''
+				};
+				loadJsonData();
+				$(".empBtn").click(function () {
+					$("#details").show();
+				});
 
 
+				$('#submitBtn').click(function () {
+					$.each(newEmp, function (key, value) {
+						console.log($('input[name="' + key + '"]'));
+						newEmp[key] = $('input[name="' + key + '"]').val();
+					});
 
-        .home{
-            justify-content: center;
-            text-align: center;
-            font-family: Comic Sans MS, Comic Sans, cursive;
-        }
-        .homeHeading{ 
-            padding-top: 150px;
-            font-size: 50px ;   
-            position: relative;   
-        }
-        .homeContent{
-            height: 400px;
-            width: 400px; 
-            padding-left: 35%;  
-        }
-        table,th,td{
-            border: 1px solid;
-            padding: 15px;
-            border-collapse: collapse;
-        }
-        section{
-            width: 100%;
-            float: left;
-            height: 100vh;
-            position: relative;
-        }
-        table {
-            font-size: large;
-            border: 1px solid black;
-        }
-        .empBtn{
-            float: right;
-            margin-bottom: 10px;
-            font-size: 20px;
-            background-color: #18122B;
-            color: white;
-        }
-        #employeeData{
-            justify-content: center;
-        }
-        .employees{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            font-size: 35px;
-            transform: translate(-50%, -50%);
-        }
-        #Login{
-            padding-top: 50px;
-            text-align: center ;
-            background-color: #CD5888;
-        }
-        .log{
-            width: 400px;
-            height: 450px;
-            border: solid;
-            box-shadow: 2px 2px;
-            background-color: #E9E8E8;
-            position:relative;
-            top: 50%;
-            left: 50%;
-            font-size: 25px;
-            transform: translate(-50%, -50%);
-        }
-        #Login h1{
-            padding-top: 50px;
-        }
-        label{
-            display: block;
-        }
-        #Login button{
-            width: 150px;
-            font-size: 20px;
-        }
-        #loglabel{
-            padding: 25px;
-        }
-        .btn-grp{
-            padding-top: 25px;
-        }
-        #details{
-            display: none;
-            position: absolute;
-            width: 400px;
-            height: 500px;
-            background-color: #BEF0CB;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            justify-content: center;
-            text-align: center;
-            font-size: 25px;
-        }
-    </style>
 
-    
+					console.log('newEmp', newEmp);
+					// var array = [];
+					// $.each("data.json", function (index, item) {
+					//     array.push(item)
+					// })
+					// loadJsonData();
+					// $("#details").hide();
+
+				});
+				function loadJsonData() {
+					$.getJSON("data.json", function (data) {
+						var employee = '';
+						$.each(data, function (key, value) {
+							employee += '<tr>';
+							employee += '<td>' + value.name + '</td>';
+							employee += '<td>' + value.age + '</td>';
+							employee += '<td>' + value.sex + '</td>';
+							employee += '<td>' + value.department + '</td>';
+							employee += '</tr>';
+						});
+						$('#table').append(employee);
+					});
+				}
+			});
+		</script>
+	</section>
+	<section id="Login">
+		<div class="log">
+			<h1>Login</h1>
+			<div class="loglabel">
+				<label for="username">UserName</label>
+				<input type="text" name="" id="username">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password"><br>
+			</div>
+			<div class="btn-grp">
+				<button type="submit">SignIn</button>
+				<button type="submit">SignUp</button>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+			overflow-x: hidden;
+		}
+
+		.navbar {
+			background-color: dimgray;
+			padding: 1%;
+			text-align: end;
+		}
+
+		.navbar.a {
+			float: right;
+			display: block;
+			width: 100%;
+		}
+
+		.btn {
+			padding: 8px;
+			border-radius: 5px;
+		}
+
+		#Home {
+			background-color: #BEF0CB;
+		}
+
+		#employeeData {
+			background-color: #C1AEFC;
+		}
+
+		#login {
+			background-color: #F6F7C1;
+		}
+
+
+
+		.home {
+			justify-content: center;
+			text-align: center;
+			font-family: Comic Sans MS, Comic Sans, cursive;
+		}
+
+		.homeHeading {
+			padding-top: 150px;
+			font-size: 50px;
+			position: relative;
+		}
+
+		.homeContent {
+			height: 400px;
+			width: 400px;
+			padding-left: 35%;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid;
+			padding: 15px;
+			border-collapse: collapse;
+		}
+
+		section {
+			width: 100%;
+			float: left;
+			height: 100vh;
+			position: relative;
+		}
+
+		table {
+			font-size: large;
+			border: 1px solid black;
+		}
+
+		.empBtn {
+			float: right;
+			margin-bottom: 10px;
+			font-size: 20px;
+			background-color: #18122B;
+			color: white;
+		}
+
+		#employeeData {
+			justify-content: center;
+		}
+
+		.employees {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: 35px;
+			transform: translate(-50%, -50%);
+		}
+
+		#Login {
+			padding-top: 50px;
+			text-align: center;
+			background-color: #CD5888;
+		}
+
+		.log {
+			width: 400px;
+			height: 450px;
+			border: solid;
+			box-shadow: 2px 2px;
+			background-color: #E9E8E8;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			font-size: 25px;
+			transform: translate(-50%, -50%);
+		}
+
+		#Login h1 {
+			padding-top: 50px;
+		}
+
+		label {
+			display: block;
+		}
+
+		#Login button {
+			width: 150px;
+			font-size: 20px;
+		}
+
+		#loglabel {
+			padding: 25px;
+		}
+
+		.btn-grp {
+			padding-top: 25px;
+		}
+
+		#details {
+			display: none;
+			position: absolute;
+			width: 400px;
+			height: 500px;
+			background-color: #BEF0CB;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			justify-content: center;
+			text-align: center;
+			font-size: 25px;
+		}
+	</style>
+
+
 </body>
+
 </html>
